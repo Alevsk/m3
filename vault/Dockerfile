@@ -17,6 +17,8 @@ EXPOSE 8200
 
 COPY --from=0 /go/src/github.com/minio/m3-vault/m3-vault    .
 COPY --from=0 /go/src/github.com/minio/m3-vault/vault-config.json    .
+COPY --from=0 /go/src/github.com/minio/m3-vault/tls/    /tls/
+COPY --from=0 /go/src/github.com/minio/m3-vault/tls/rootCA.pem    /usr/local/share/ca-certificates/rootCA.pem
 
 ENTRYPOINT []
 CMD ["/m3-vault"]
